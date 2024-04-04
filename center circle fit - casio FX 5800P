@@ -1,0 +1,23 @@
+
+INPUT "Enter X-coordinate of A: ", XA
+INPUT "Enter Y-coordinate of A: ", YA
+INPUT "Enter Z-coordinate of A: ", ZA
+INPUT "Enter X-coordinate of B: ", XB
+INPUT "Enter Y-coordinate of B: ", YB
+INPUT "Enter Z-coordinate of B: ", ZB
+INPUT "Enter X-coordinate of C: ", XC
+INPUT "Enter Y-coordinate of C: ", YC
+INPUT "Enter Z-coordinate of C: ", ZC
+
+' Calculate side lengths
+AB = SQR((XB - XA)^2 + (YB - YA)^2 + (ZB - ZA)^2)
+BC = SQR((XC - XB)^2 + (YC - YB)^2 + (ZC - ZB)^2)
+CA = SQR((XA - XC)^2 + (YA - YC)^2 + (ZA - ZC)^2)
+
+' Calculate circumcenter
+OX = (AB^2 * (BC^2 + CA^2 - AB^2) * XA + BC^2 * (AB^2 + CA^2 - BC^2) * XB + CA^2 * (BC^2 + AB^2 - CA^2) * XC) / (AB^2 * (BC^2 + CA^2 - AB^2) + BC^2 * (AB^2 + CA^2 - BC^2) + CA^2 * (BC^2 + AB^2 - CA^2))
+OY = (AB^2 * (BC^2 + CA^2 - AB^2) * YA + BC^2 * (AB^2 + CA^2 - BC^2) * YB + CA^2 * (BC^2 + AB^2 - CA^2) * YC) / (AB^2 * (BC^2 + CA^2 - AB^2) + BC^2 * (AB^2 + CA^2 - BC^2) + CA^2 * (BC^2 + AB^2 - CA^2))
+OZ = (AB^2 * (BC^2 + CA^2 - AB^2) * ZA + BC^2 * (AB^2 + CA^2 - BC^2) * ZB + CA^2 * (BC^2 + AB^2 - CA^2) * ZC) / (AB^2 * (BC^2 + CA^2 - AB^2) + BC^2 * (AB^2 + CA^2 - BC^2) + CA^2 * (BC^2 + AB^2 - CA^2))
+
+' Display circumcenter coordinates
+PRINT "Circumcenter (X, Y, Z): "; OX; ", "; OY; ", "; OZ
